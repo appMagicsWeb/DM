@@ -59,6 +59,9 @@ function connDanmuServ(roomID) {
     var msg = data.toString();
     var qItem = parseReadable(msg);
     console.log(qItem);
+
+    document.getElementById('userName').innerHTML = '<span>'+qItem.userName+'</span>';
+    document.getElementById('content').innerHTML = '<span>'+qItem.content+'</span>';
     
 
 

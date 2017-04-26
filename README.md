@@ -1,6 +1,6 @@
 # TYdouyu
 
-## 弹幕助手[跨平台版] for Douyu
+## 弹幕助手  for Douyu
 
 
 Install
