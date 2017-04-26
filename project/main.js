@@ -16,14 +16,12 @@ function createWindow () {
   }))
 
   // 打开开发者工具。
-  // win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   win.on('closed', () => {
     win = null
   })
 }
-
-
 
 
 
@@ -46,5 +44,4 @@ app.on('activate', () => {
   }
 })
 
-// 在这文件，你可以续写应用剩下主进程代码。
 // 也可以拆分成几个文件，然后用 require 导入。
