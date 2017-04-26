@@ -1,0 +1,16 @@
+{
+  "name": "TYdouyu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "project/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-packager ./app  --overwrite" 
+  },
+  "author": "WaterTian",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^1.6.6",
+    "electron-packager": "^8.6.0"
+  }
+}
