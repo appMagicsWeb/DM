@@ -22,5 +22,5 @@ Build
 ---
 Build  application
 ```
-npm build   or  npm  electron-packager .
+npm build   or  electron-packager . --overwrite
 ```
