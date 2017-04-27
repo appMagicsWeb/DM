@@ -28,6 +28,7 @@ var service = {
 };
 
 fetchChatInfo.onclick = function() {
+	document.getElementById('chatList').innerHTML = ''
 	connDanmuServ(ipt.value); //32892
 }
 
