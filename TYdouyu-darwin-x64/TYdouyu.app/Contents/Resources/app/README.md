@@ -17,3 +17,10 @@ Run  application
 ```
 npm start
 ```
+
+Build
+---
+Build  application
+```
+npm build   or  npm  electron-packager .
+```
