@@ -1,0 +1,94 @@
+
+body, div, ul, li, h2, p, input, button {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	width: 320px;
+	height: 550px;
+	background: url(../img/bg.png) center no-repeat;
+	background-size: 320px 550px;
+	overflow: hidden;
+}
+
+#chatWrap {
+	position: relative;
+	top: 17px;
+	left: 22px;
+	width: 100%;
+	height: 100%;
+}
+
+h2 {
+	position: relative;
+}
+
+#ipt {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 171px;
+	height: 40px;
+	font-size: 14px;
+	color: #cbcaca;
+	outline: none;
+	border: 0;
+	padding-left: 104px;
+	background: url(../img/topBg.png) center no-repeat;
+	background-size: cover;
+}
+
+button {
+	position: absolute;
+	top: 0;
+	right: 45px;
+	z-index: 2;
+	width: 45px;
+	height: 40px;
+	border: 0;
+	outline: none;
+	background: url(../img/topBtn.png) center no-repeat;
+	background-size: cover;
+}
+
+#chatList {
+	position: absolute;
+	top: 55px;
+	left: 0;
+	width: 275px;
+	height: 424px;
+}
+
+li {
+	width: 100%;
+	height: 22px;
+	font-size: 12px;
+	color: #ca99ce;
+	padding-left: 15px;
+	margin-bottom: 7px;
+	line-height: 22px;
+	list-style: none;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	background: url(../img/listBg1.png) center no-repeat;
+	background-size: cover;
+}
+
+li.gift {
+	background: url(../img/listBg2.png) center no-repeat;
+	background-size: cover;
+}
+
+
+span#downIM {
+	position: absolute;
+	bottom: 39px;
+	right: 44px;
+	width: 45px;
+	height: 32px;
+	background: url(../img/downBtn.png) center no-repeat;
+	background-size: cover;
+}

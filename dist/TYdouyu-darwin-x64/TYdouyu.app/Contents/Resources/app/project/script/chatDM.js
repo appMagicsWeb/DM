@@ -28,6 +28,7 @@ var service = {
 };
 
 fetchChatInfo.onclick = function() {
+	document.getElementById('chatList').innerHTML = ''
 	connDanmuServ(ipt.value); //32892
 }
 
@@ -59,54 +60,7 @@ function connDanmuServ(roomID) {
 		var qItem = parseReadable(msg);
 		console.log(qItem)
 		handleChatMsg(qItem)
-
-		// service.messages.push(qItem);
-		// $rootScope.$broadcast('newMsgArrive');
-
-		// if (service.isSpeak && qItem.type === 'msg') {
-		//   var msg = new SpeechSynthesisUtterance(qItem.content);
-		//   msg.lang = 'zh-CN';
-		//   window.speechSynthesis.speak(msg);
-		// }
-
-		// if (service.isStartRoll) {
-		//   if (rollType === 'keyWord' && qItem.type === 'msg' && qItem.content.indexOf(rollKey) > -1) {
-		//     qItem.getLucky = false;
-		//     service.candidates.push(qItem);
-		//     $rootScope.$broadcast('newCandidateArrive');
-		//   }
-		//   if (rollType === 'gift' && qItem.type === 'gift') {
-		//     var idx = lodash.findIndex(service.candidates, function(o) {
-		//       return o.userName === qItem.userName;
-		//     });
-		//     if (idx > -1) {
-		//       service.candidates[idx].giftValue += qItem.giftValue
-		//       $rootScope.$broadcast('newCandidateArrive');
-		//     } else {
-		//       var newCandi = {
-		//         userName: qItem.userName,
-		//         giftValue: qItem.giftValue,
-		//         getLucky: false
-		//       };
-		//       service.candidates.push(newCandi);
-		//       $rootScope.$broadcast('newCandidateArrive');
-		//     }
-		//   }
-		// }
-
 	});
-
-	/*  danmuClient.on('end', function() {
-	    console.error('Disconnect to Danmu server');
-	    util.showMsg("弹幕服务器连接断开");
-	  });
-
-	  danmuClient.on('error', function() {
-	    console.error('Error: Danmu server');
-	    util.showMsg("弹幕服务器连接错误");
-	    connDanmuServ(roomID);
-	    util.showMsg("重连弹幕服务器...");
-	  });*/
 
 }
 var chatArr = [];
@@ -116,28 +70,20 @@ function handleChatMsg(msg) {
 		document.getElementsByTagName('li')[0].remove()
 	}
 	if(msg.type == 'msg') {
-		createChatMsg(msg.userName, msg.content)
+		createChatMsg(msg.userName, msg.content, false)
 	} else if(msg.type == 'gift') {
-		createChatMsg(msg.userName, '')
+		createChatMsg(msg.userName, '', true)
 	} else if(msg.type == 'unkonwn') {
 
 	}
-
-	//	if(msg.userName != 'undefined' && msg.content != 'undefined') {
-	//		var chatBox = document.getElementById('chatList');
-	//		var chatItem = document.createElement('li');
-	//
-	//		var con = document.createTextNode(msg.userName + ': ' + msg.content);
-	//
-	//		chatItem.appendChild(con);
-	//		chatBox.appendChild(chatItem)
-	//	}
-
 }
 
-function createChatMsg(name, con) {
+function createChatMsg(name, con, isGift) {
 	var chatBox = document.getElementById('chatList');
 	var chatItem = document.createElement('li');
+	if(isGift) {
+		chatItem.setAttribute('class', 'gift');
+	}
 	if(con != '') {
 		var con = document.createTextNode(name + ': ' + con);
 	} else {

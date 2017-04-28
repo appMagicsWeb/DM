@@ -6,7 +6,7 @@ let win
 
 function createWindow () {
   // 创建浏览器窗口。
-  win = new BrowserWindow({width: 400, height: 600})
+  win = new BrowserWindow({width: 320, height: 572, resizable: false})//320
 
   // 加载应用的 index.html。
   win.loadURL(url.format({
@@ -16,7 +16,7 @@ function createWindow () {
   }))
 
   // 打开开发者工具。
-  // win.webContents.openDevTools();
+ // win.webContents.openDevTools();
 
   win.on('closed', () => {
     win = null

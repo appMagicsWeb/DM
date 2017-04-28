@@ -22,5 +22,5 @@ Build
 ---
 Build  application
 ```
-npm run-script buildMac
+npm run buildMac
 ```
