@@ -34,13 +34,14 @@ fetchChatInfo.onclick = function() {
 
 function connDanmuServ(roomID) {
 	console.log("寻找.");
+	document.getElementById('status').innerHTML = '寻找.'
 	danmuClient = net.connect({
 			host: danmuServer.ip,
 			port: danmuServer.port
 		},
 		function() {
 			console.log("连接.");
-
+			document.getElementById('status').innerHTML = '连接.'
 			var loginServer = "type@=loginreq/roomid@=" + roomID + "/";
 			var joinGroup = "type@=joingroup/rid@=" + roomID + "/gid@=-9999/";
 
@@ -58,15 +59,17 @@ function connDanmuServ(roomID) {
 	danmuClient.on('data', function(data) {
 		var msg = data.toString();
 		var qItem = parseReadable(msg);
-		console.log("弹幕.")
-		console.log(qItem);
+		console.log("弹幕")
+		setTimeout(function() {
+			document.getElementById('status').innerHTML = '弹幕.'
+		}, 1000)
 		handleChatMsg(qItem)
 	});
 }
 var chatArr = [];
 
 function handleChatMsg(msg) {
-	if(document.getElementsByTagName('li').length > 14){
+	if(document.getElementsByTagName('li').length > 14) {
 		document.getElementsByTagName('li')[0].remove()
 	}
 	if(msg.type == 'msg') {
@@ -85,9 +88,9 @@ function createChatMsg(name, con, isGift) {
 		chatItem.setAttribute('class', 'gift');
 	}
 	if(con != '') {
-		var con = document.createTextNode(name + ': ' + con);
+		var con = document.createTextNode(name + ' : ' + con);
 	} else {
-		var con = document.createTextNode(name + '送礼物啦啦~');
+		var con = document.createTextNode(name + ' : 打赏礼物~~');
 	}
 
 	chatItem.appendChild(con);
@@ -110,7 +113,6 @@ function deserialize(rawData) {
 			v = v.replace(/@A/g, '@');
 			dataObj[kv[0]] = v;
 		}
-
 	};
 
 	if(dataObj.type === "bc_buy_deserve") {
