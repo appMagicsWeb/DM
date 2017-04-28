@@ -22,5 +22,5 @@ Build
 ---
 Build  application
 ```
-npm build   or  electron-packager . --overwrite
+npm run buildMac
 ```
