@@ -61,6 +61,7 @@ function connDanmuServ(roomID) {
 		console.log(qItem)
 		handleChatMsg(qItem)
 	});
+
 }
 var chatArr = [];
 
