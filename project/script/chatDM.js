@@ -33,13 +33,13 @@ fetchChatInfo.onclick = function() {
 }
 
 function connDanmuServ(roomID) {
-	console.log("寻找弹幕服务器中...");
+	console.log("寻找.");
 	danmuClient = net.connect({
 			host: danmuServer.ip,
 			port: danmuServer.port
 		},
 		function() {
-			console.log("弹幕服务器找到 开始连接");
+			console.log("连接.");
 
 			var loginServer = "type@=loginreq/roomid@=" + roomID + "/";
 			var joinGroup = "type@=joingroup/rid@=" + roomID + "/gid@=-9999/";
@@ -58,7 +58,8 @@ function connDanmuServ(roomID) {
 	danmuClient.on('data', function(data) {
 		var msg = data.toString();
 		var qItem = parseReadable(msg);
-		console.log(qItem)
+		console.log("弹幕.")
+		console.log(qItem);
 		handleChatMsg(qItem)
 	});
 }
