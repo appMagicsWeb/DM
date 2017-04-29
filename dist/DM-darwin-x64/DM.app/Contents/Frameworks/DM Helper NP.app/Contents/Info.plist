@@ -4,10 +4,14 @@
   <dict>
     <key>BuildMachineOSBuild</key>
     <string>15G31</string>
+    <key>CFBundleDisplayName</key>
+    <string>DM Helper NP</string>
+    <key>CFBundleExecutable</key>
+    <string>DM Helper NP</string>
     <key>CFBundleIdentifier</key>
-    <string>com.electron.tydouyu.helper</string>
+    <string>com.electron.dm.helper.NP</string>
     <key>CFBundleName</key>
-    <string>TYdouyu</string>
+    <string>DM Helper NP</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>DTSDKBuild</key>
@@ -22,9 +26,5 @@
     <true/>
     <key>NSSupportsAutomaticGraphicsSwitching</key>
     <true/>
-    <key>CFBundleDisplayName</key>
-    <string>TYdouyu Helper</string>
-    <key>CFBundleExecutable</key>
-    <string>TYdouyu Helper</string>
   </dict>
 </plist>
