@@ -6,26 +6,28 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="css/index.css" />
+		<script src="lib/webim.js"></script>
+		<script src="lib/json2.js"></script>
 	</head>
 	
 	<body>
 		<div id="chatWrap">
 			<h2>
-				<input type="text" placeholder="roomId" id="DYRoom" autofocus/>
+				<input type="text" placeholder="roomId" id="DYRoom" autofocus value="65962"/>
 				<button id="fetchChatInfo"></button>
 			</h2>
 			<ul id="chatList">
 			</ul>
 		</div>
 		<div id="IM">
-			<input type="text" placeholder="chatRoom" id="IMRoom"/>
-			<span id="downIM"></span>
+			<input type="text" placeholder="chatRoom" id="IMRoom" value="@TGS#a7JTUXYER"/>
+			<span id="connectIM"></span>
 		</div>
 		<div id="status"></div>
 	</body>
 
-	<script>
-		require('./script/chatDM.js');
+	<script src="script/webIM.js"></script>
+	<script src="script/chatDM.js">
 	</script>
 
 </html>

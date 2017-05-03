@@ -24,7 +24,7 @@ var service = {
 	messages: [],
 	isSpeak: false,
 
-	giftConfig: {}
+	giftConfig: []
 };
 
 fetchChatInfo.onclick = function() {
@@ -59,10 +59,11 @@ function connDanmuServ(roomID) {
 	danmuClient.on('data', function(data) {
 		var msg = data.toString();
 		var qItem = parseReadable(msg);
-		console.log("弹幕")
-		setTimeout(function() {
-			document.getElementById('status').innerHTML = '弹幕.'
-		}, 1000)
+		if(document.getElementById('status').innerHTML != '弹幕.') {
+			setTimeout(function() {
+				document.getElementById('status').innerHTML = '弹幕.'
+			}, 1000)
+		}
 		handleChatMsg(qItem)
 	});
 }
@@ -76,6 +77,10 @@ function handleChatMsg(msg) {
 		createChatMsg(msg.userName, msg.content, false)
 	} else if(msg.type == 'gift') {
 		createChatMsg(msg.userName, '', true)
+		//		console.log(JSON.stringify(msg))
+		if(webIM.isMsgSendToIM) {
+			webIM.sendMsg(msg)
+		}
 	} else if(msg.type == 'unkonwn') {
 
 	}
@@ -134,7 +139,6 @@ function deserialize(rawData) {
 function parseReadable(rawData) {
 	var item = {};
 	var dataObj = deserialize(rawData);
-
 	if(dataObj.type === 'chatmsg') {
 		item.type = 'msg';
 		item.userName = dataObj.nn;
@@ -148,7 +152,6 @@ function parseReadable(rawData) {
 		item.hits = dataObj.hits;
 
 		var giftInfo = {};
-
 		for(var i = 0; i < service.giftConfig.length; i++) {
 			if(service.giftConfig[i].id == dataObj.gfid) {
 				giftInfo = service.giftConfig[i];
