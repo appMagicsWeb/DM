@@ -39,7 +39,7 @@ h2 {
 	width: 140px;
 	height: 37px;
 	font-size: 14px;
-	color: #cbcaca;
+	color: rgba(255, 255, 255, .7);
 	letter-spacing: 1px;
 	outline: none;
 	border: 0;
@@ -118,8 +118,8 @@ div#IM {
 	height: 22px;
 	padding-left: 99px;
 	padding-top: 15px;
-	font-size: 16px;
-	color: #cbcaca;
+	font-size: 14px;
+	color: rgba(255, 255, 255, .7);
 	letter-spacing: .3px;
 	outline: none;
 	border: 0;
@@ -127,7 +127,7 @@ div#IM {
 	background-size: cover;
 }
 
-span#downIM {
+span#connectIM {
 	position: absolute;
 	z-index: 2;
 	bottom: 18px;
@@ -138,7 +138,7 @@ span#downIM {
 	background-size: cover;
 }
 
-span#downIM:hover {
+span#connectIM:hover {
 	background: url(../img/imBtn2.png) center no-repeat;
 	background-size: cover;
 }
